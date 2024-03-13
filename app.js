@@ -7,6 +7,7 @@ const { v4: uuidv4 } = require('uuid');
 const mongoose = require('mongoose');
 const Blog= require("./model/Blog")
 const router = require("./routes/blog");
+const { CLIENT_RENEG_LIMIT } = require("tls");
 
 
 app.use(express.static(path.join(__dirname,'public')))
@@ -20,7 +21,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/BlogPage')
 .then(()=>{
     app.listen(PORT,()=>{
         console.log("http://localhost:"+ PORT);
-    })
+        console.log("Hello from terminal");
+        })
 })
 
 
